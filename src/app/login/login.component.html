@@ -1,0 +1,46 @@
+<div class="container">
+  <h2>{{title}}</h2>
+  <form #form="ngForm" (ngSubmit)="OnSubmit(form)">
+    <div class="form-group">
+      <label for="name"> {{lblUsername}}</label>
+      <input
+        id="username"
+        name="username"
+        class="form-control"
+        [(ngModel)]="userSettings.username"
+        required
+        #nameField ="ngModel"
+        [class.field-error]="form.submitted && nameField.invalid"
+        (blur)="OnBlur(nameField)"
+      />
+      <div
+        [hidden]="!form.submitted || nameField.valid"
+        class="alert alert-danger"
+      >
+        Enter {{lblUsername}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="name"> {{lblPassword}}</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        class="form-control"
+        [(ngModel)]="userSettings.password"
+        required
+        #passField="ngModel"
+        [class.field-error]="form.submitted && passField.invalid"
+        (blur)="OnBlur(passField)"
+      />
+      <div
+        [hidden]="!form.submitted || passField.valid"
+        class="alert alert-danger"
+      >
+        Enter {{lblPassword}}
+      </div>
+    </div>
+
+    <button class="btn btn-primary">Send</button>
+  </form>
+</div>
