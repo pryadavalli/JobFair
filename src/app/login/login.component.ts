@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { NgModel, NgForm } from '@angular/forms';
 import { UserSettings } from '../data/user-settings';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
   title = 'Login';
   lblUsername = 'Username';
   lblPassword = 'Password';
+
   oringinaluserSettings: UserSettings = {
     username: null,
     password: null
@@ -25,6 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loginservice.LogOut();
     this.userSettings.username = 'test';
     this.userSettings.password = 'test';
   }
@@ -43,4 +46,5 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/login']);
     }
   }
+
 }

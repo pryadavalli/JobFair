@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -20,5 +20,15 @@ export class SignupComponent implements OnInit {
 
   Save() {
     console.log('Saving the userinfo');
+  }
+  pupulateTestData() {
+    // patch value or setvalue
+
+    this.userForm.patchValue({
+      firstName: 'puru',
+      lastName: 'yada',
+      email: 'test@gmail.com',
+       password: 'test'
+    });
   }
 }

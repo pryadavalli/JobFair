@@ -11,13 +11,16 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { SignupComponent } from './signup/signup.component';
+import { MenuModule } from 'primeng/menu';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    SignupComponent
+    SignupComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import { SignupComponent } from './signup/signup.component';
     BrowserAnimationsModule,
     InputTextModule,
     DialogModule,
-    ButtonModule
+    ButtonModule,
+    MenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
